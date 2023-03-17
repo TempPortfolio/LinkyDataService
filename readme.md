@@ -2,7 +2,7 @@
 
 ## Présentation
 
-Ce projet est un service de données créé lors du projet de fin de seconde année de BTS SN EC.
+Ce projet est un service de données créé lors du projet de fin de seconde année de BTS SN EC.  
 Il met à disposition deux services :
 - Un service pour les données d’un compteur Linky (téléinfo)
 - Un service pour la température et l’humidité (basé sur un DHT11)
@@ -13,18 +13,18 @@ Le service permet l’enregistrement de nouvelles données. Il permet aussi l’
 
 ## Fonctionnement
 
-Le programme a été fait en java et la gestion des dépendances est fait avec Maven.
+Le programme a été fait en java et la gestion des dépendances est fait avec Maven.  
 Voici le diagramme de classe simplifié du programme:
 
 ![](src/main/resources/documentation/uml_dataservice.PNG)
 
-En vert : Gestion des clients web socket
-En rose : Système d’interprétation des paquets JSON
-En bleu : Le système de stockage
+En vert : Gestion des clients web socket  
+En rose : Système d’interprétation des paquets JSON  
+En bleu : Le système de stockage  
 
 ### Communication avec le service
 
-L’application est construite pour communiquer avec un système de paquets formatés en JSON. Ces deux technologies sont très courantes et simples à utiliser.
+L’application est construite pour communiquer avec un système de paquets formatés en JSON. Ces deux technologies sont très courantes et simples à utiliser.  
 Voici une liste des principaux paquets utilisé :
 
 | Nom | Type | Description |
@@ -58,8 +58,8 @@ La configuration offre la possibilité de choisir le mode de stockage, de change
 
 ### Grands nombres de données
 
-Si on considère qu’une nouvelle entrée de donnée est enregistrée toutes les secondes, le nombre donné pour un seul service au bout d’un siècle serait d’environ de 3 milliards. Le programme ne fonctionnera sûrement pas plus d’une semaine car c’est un projet scolaire, mais gérer une très grande quantité de données en temps réel, est l'un des principes d’un service de données.
-Le problème actuel est que si nous faisons une demande de données sur un service de l’application, il nous retourne l’ensemble des valeurs existantes. Le problème est assez évident, le transfert de données peut-être très long. Pour information, j’ai constaté que l’acquisition par le service prend 20 secondes pour obtenir 7 millions de valeurs du service DHT. Ce qui est considérable, en sachant qu’il faut en plus formater les valeurs en JSON et les transmettre en web socket.
+Si on considère qu’une nouvelle entrée de donnée est enregistrée toutes les secondes, le nombre donné pour un seul service au bout d’un siècle serait d’environ de 3 milliards. Le programme ne fonctionnera sûrement pas plus d’une semaine car c’est un projet scolaire, mais gérer une très grande quantité de données en temps réel, est l'un des principes d’un service de données.  
+Le problème actuel est que si nous faisons une demande de données sur un service de l’application, il nous retourne l’ensemble des valeurs existantes. Le problème est assez évident, le transfert de données peut-être très long. Pour information, j’ai constaté que l’acquisition par le service prend 20 secondes pour obtenir 7 millions de valeurs du service DHT. Ce qui est considérable, en sachant qu’il faut en plus formater les valeurs en JSON et les transmettre en web socket.  
 Il y a quelques solutions pour régler ce problème :
 
 #### Compression des données 
