@@ -1,0 +1,15 @@
+{
+	"#comment_1": "MySql connection configuration:",
+	"mysql.url": "jdbc:mysql://localhost:3306/",
+	"mysql.user": "root",
+	"mysql.password": "",
+	
+	"database_name": "linky_project",
+	
+	"#comment_2": "Web-socket server configuration:",
+	"ws_server.host": "localhost",
+	"ws_server.port": 8098,
+	
+	"#comment_3": "Type data source: test | sql | ir :",
+	"data_service.type": "test"
+}
